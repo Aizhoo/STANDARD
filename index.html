@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SPECIALTY STANDARD</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header-content">
+            <h1>SPECIALTY STANDARD</h1>
+            <div class="currency-conversion">
+                <div class="fair-value-box">
+                    <label>Our Fair Value in USD (roasted)</label>
+                    <span id="fairValue">$0.00</span>
+                </div>
+                <div class="euro-box">
+                    <label>Our Fair Value in EUR (roasted)</label>
+                    <span id="euroValue">€0.00</span>
+                </div>
+
+            </div>
+        </div>
+        
+        <div class="card">
+            <h2>Green Coffee</h2>
+
+            <div class="input-group">
+                <label for="country">Country of Origin</label>
+                <select id="country">
+                    <option value="0">Select Country</option>
+                    <!-- At par -->
+                    <optgroup label="At Par">
+                        <option value="0">Mexico</option>
+                        <option value="0">El Salvador</option>
+                        <option value="0">Nicaragua</option>
+                        <option value="0">Papua New Guinea</option>
+                        <option value="0">Panama</option>
+                        <option value="0">Tanzania</option>
+                        <option value="0">Uganda</option>
+                        <option value="0">Honduras</option>
+                        <option value="0">Peru</option>
+                    </optgroup>
+                    <!-- Premium -->
+                    <optgroup label="Premium ($0.10)">
+                        <option value="0.10">Colombia</option>
+                        <option value="0.10">Costa Rica</option>
+                        <option value="0.10">Kenya</option>
+                    </optgroup>
+                    <optgroup label="Premium ($0.05)">
+                        <option value="0.05">Guatemala</option>
+                    </optgroup>
+                    <!-- Discount -->
+                    <optgroup label="Discount ($0.01)">
+                        <option value="-0.01">Burundi</option>
+                        <option value="-0.01">Rwanda</option>
+                        <option value="-0.01">Venezuela</option>
+                        <option value="-0.01">India</option>
+                    </optgroup>
+                    <optgroup label="Discount ($0.04)">
+                        <option value="-0.04">Dominican Republic</option>
+                        <option value="-0.04">Ecuador</option>
+                    </optgroup>
+                    <optgroup label="Discount ($0.06)">
+                        <option value="-0.06">Brazil</option>
+                    </optgroup>
+                </select>
+            </div>
+            <div class="input-group">
+                <label for="deliveryPort">Delivery Port</label>
+                <select id="deliveryPort">
+                    <option value="0">Select Port</option>
+                    <!-- At par -->
+                    <optgroup label="At Par">
+                        <option value="0">New York District</option>
+                        <option value="0">Virginia</option>
+                    </optgroup>
+                    <!-- 0.50 cent discount -->
+                    <optgroup label="0.50 cent discount">
+                        <option value="-0.005">New Orleans</option>
+                        <option value="-0.005">Miami</option>
+                        <option value="-0.005">Houston</option>
+                    </optgroup>
+                    <!-- 1.25 cent discount -->
+                    <optgroup label="1.25 cent discount">
+                        <option value="-0.0125">Bremen/Hamburg</option>
+                        <option value="-0.0125">Antwerp</option>
+                        <option value="-0.0125">Barcelona</option>
+                    </optgroup>
+                </select>
+            </div>
+            <div class="input-group">
+                <label for="commodityPrice">NY Commodity Coffee Price ($/lb)</label>
+                <input type="number" id="commodityPrice" step="0.0001" value="4.0075">
+            </div>
+            <div class="input-group">
+                <label for="cupScore">Cup Score</label>
+                <input type="number" id="cupScore" min="80" max="100" step="1" value="80">
+            </div>
+            <div class="input-group">
+                <label for="tariff">Import Tariff (%)</label>
+                <span id="tariffDisplay">0%</span>
+                <small>Automatically calculated based on country and port</small>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>Processing and Logistics</h2>
+            <div class="input-group">
+                <label for="importerMarkup">Percentage Share (%)</label>
+                <input type="number" id="importerMarkup" step="0.01" value="45" min="0" max="100">
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>Roasting Expense</h2>
+            <div class="input-group">
+                <label for="shippingCosts">Shipping Expense ($/pallet)</label>
+                <div class="input-group">
+                    <input type="number" id="shippingCosts" step="0.01" value="200">
+                    <small>(Each pallet contains 10 bags, 1500 lbs total)</small>
+                </div>
+            </div>
+            <div class="input-group">
+                <label for="laborPercentage">Labor Percentage (%)</label>
+                <input type="number" id="laborPercentage" step="0.01" value="20" min="0" max="100">
+            </div>
+            <div class="input-group">
+                <label for="bagCost">Retail Bag Expense ($/lb)</label>
+                <input type="number" id="bagCost" step="0.01" value="0.50">
+            </div>
+            <div class="input-group">
+                <label for="labelCost">Label Expense ($/lb)</label>
+                <input type="number" id="labelCost" step="0.01" value="0.20">
+            </div>
+            <div class="input-group">
+                <label for="overhead">Overhead Expense ($/lb)</label>
+                <input type="number" id="overhead" step="0.01" value="0.50">
+            </div>
+            <div class="input-group">
+                <label for="roastingShrinkage">Roast Level</label>
+                <select id="roastingShrinkage">
+                    <option value="10">Light - 10%</option>
+                    <option value="12" selected>Light/Medium - 12%</option>
+                    <option value="15">Medium - 15%</option>
+                    <option value="18">Medium/Dark - 18%</option>
+                    <option value="20">Dark - 20%</option>
+                </select>
+            </div>
+            <div class="input-group">
+                <label for="desiredMargin">Desired Margin (%)</label>
+                <input type="number" id="desiredMargin" step="0.01" value="30" min="0" max="100">
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>Pricing Output</h2>
+            <div class="output-group">
+                <div class="output-item">
+                    <label>Final Suggested Price/lb (roasted)</label>
+                    <span id="finalPrice">$0.00</span>
+                </div>
+                <div class="output-item">
+                    <label>Total Cost/lb before margin</label>
+                    <span id="totalCost">$0.00</span>
+                </div>
+                <div class="output-item">
+                    <label>Total Cost/150lb bag</label>
+                    <span id="totalCostPerBag">$0.00</span>
+                </div>
+                <div class="output-item">
+                    <label>Gross Margin (%)</label>
+                    <span id="grossMarginPercent">0.00%</span>
+                </div>
+                <div class="output-item">
+                    <label>Return on Investment ($/150lb bag)</label>
+                    <span id="roi">$0.00</span>
+                </div>
+                <div class="output-item">
+                    <label>Estimated Shipping Cost ($/pallet)</label>
+                    <span id="shippingCostPerPallet">$0.00</span>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <h2>Container-Level Output (37,500 lbs)</h2>
+            <div class="output-group">
+                <div class="output-item">
+                    <label>Total Estimated Revenue/container (roasted)</label>
+                    <span id="containerFinalPrice">$0.00</span>
+                </div>
+                <div class="output-item">
+                    <label>Total Cost/container before margin</label>
+                    <span id="containerTotalCost">$0.00</span>
+                </div>
+                <div class="output-item">
+                    <label>Return on Investment ($/container)</label>
+                    <span id="containerRoi">$0.00</span>
+                </div>
+                <div class="output-item">
+                    <label>Estimated Shipping Cost ($/container)</label>
+                    <span id="shippingCostPerContainer">$0.00</span>
+                </div>
+            </div>
+        </div>
+        <div class="disclaimer">
+            <p>This calculator is to be used for research purposes only. Please keep in mind that cup scores are subjective. This calculator's default values are updated on the first of each month with current market averages for small/medium sized roasters in the USA.</p>
+        </div>
+    </div>
+    <footer class="footer">
+        <p>MADE BY AIZHAK NENSEY</p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
